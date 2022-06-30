@@ -1,5 +1,5 @@
 .sidebar {
-    background: var(--gray=800);
+    background: var(--gray-800);
     border-radius: 8px;
     overflow:hidden
 }
@@ -18,7 +18,7 @@
 
 .sidebar footer {
     border-top: 1px solid var(--gray-600);
-    background: var(--gray=800);
+    background: var(--gray=600);
     margin-top: 1.5rem;
     padding: 1.5rem 2rem 2rem;
 }
