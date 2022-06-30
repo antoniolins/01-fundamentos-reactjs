@@ -1,5 +1,5 @@
 .header {
-    background-color: rgb(37, 34, 34);
+    background: var(--gray-800);
    
     display: flex;
     justify-content: center;

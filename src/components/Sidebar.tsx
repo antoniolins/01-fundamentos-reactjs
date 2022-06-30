@@ -8,16 +8,16 @@ export function Sidebar() {
 
             />
 
-        <div className={styles.profile}>
-            <strong>Antonio Lins</strong>
-            <span>Web Developer</span>
-        </div>
+            <div className={styles.profile}>
+                <strong>Antonio Lins</strong>
+                <span>Web Developer</span>
+            </div>
 
-        <footer>
-            <a href="#">
-                Editar seu Perfil
-            </a>
-        </footer>
+            <footer>
+                <a href="#">
+                    Editar seu Perfil
+                </a>
+            </footer>
         </aside>
     );
 }
