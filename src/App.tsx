@@ -7,6 +7,37 @@ import './global.module.css'
 import styles from './App.module.css';
 
 
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: 'https://github.com/antoniolins.png',
+      name: 'Antonio Lins',
+      role: 'Web Developer'
+    },
+    content: [
+      {type: 'paragraph', content: 'Fala galeraa 👋 '},
+      {type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'},
+      {type: 'paragraph', link: 'jane.design/doctorcare'},
+    ],
+    publishedAt: new Date ('2022-07-02 21:23:00')
+  },
+  {
+    id: 2,
+    author: {
+      avatarUrl: 'https://github.com/maykbrito.png',
+      name: 'Mayk Brito',
+      role: 'Educator @Rocketseat'
+    },
+    content: [
+      {type: 'paragraph', content: 'Fala galeraa 👋 ... Aqui é o Mayk Brito....'},
+      {type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀'},
+      {type: 'paragraph', link: 'jane.design/doctorcare'},
+    ],
+    publishedAt: new Date ('2022-07-04 20:00:00')
+  }
+]
+
 export function App(): JSX.Element {
 
   return (
@@ -15,16 +46,15 @@ export function App(): JSX.Element {
       <div className={styles.wrapper}>
         <Sidebar/>
             <main>
+              {posts.map(post => {
+                return (
+                  <Post 
+                    author={post.author}
+                    content={post.content}
+                    publishedAt={post.publishedAt}
 
-              <Post 
-                  author ="Antonio Lins"
-                  content = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus quae corporis commodi inventore cum temporibus. Totam vero quis cumque, earum, placeat numquam consequuntur, quasi tempore sit accusamus harum labore commodi."
-              />   
-              <Post 
-                  author ="Diego Fernandes"
-                  content = "Este é um post muito Legal "
-                
-              /> 
+                  />)
+              })}
 
             </main>
         </div>
