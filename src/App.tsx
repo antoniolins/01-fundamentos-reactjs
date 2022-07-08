@@ -6,7 +6,6 @@ import './global.module.css'
 
 import styles from './App.module.css';
 
-
 const posts = [
   {
     id: 1,
@@ -38,7 +37,7 @@ const posts = [
   }
 ]
 
-export function App(): JSX.Element {
+export function App() {
 
   return (
     <div>
@@ -49,6 +48,7 @@ export function App(): JSX.Element {
               {posts.map(post => {
                 return (
                   <Post 
+                    key={post.id}
                     author={post.author}
                     content={post.content}
                     publishedAt={post.publishedAt}

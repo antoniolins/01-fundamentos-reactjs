@@ -39,6 +39,13 @@ export function Post ({ author, publishedAt , content })  {
         setNewCommentText(event.target.value);
     }
 
+    function deleteComment(commentToDelete) {
+        const commentsWithoutDeletedOne = comments.filter(comment => {
+            return comment != commentToDelete;
+        })
+
+        setComments(commentsWithoutDeletedOne);
+    }
     return (
         <article className={styles.post}>
             <header className={styles.header}>
@@ -58,15 +65,19 @@ export function Post ({ author, publishedAt , content })  {
             </header>
             <div className={styles.content}>
 
-              {content.map(line => {
-                if (line.type === 'paragraph') {
-                     return <p>{line.content}</p>;
-                } else if (line.type === 'link') {
-                    return <p><a href="">{line.content}</a></p>;
+                {content.map((line, index) => 
+                   {
+                        if (line.type === 'paragraph') {
+                            return <p key={index}>{line.content}</p>;
+                        } else if (line.type === 'link') {
+                            return <p key={index}><a href="">{line.content}</a></p>;
+                        }
+                    }
+                  )
                 }
-              })}
 
             </div>
+
             <form onSubmit={handleCreateNewComent} className={styles.commentForm}>
                 <strong>Deixe seu feedback</strong> 
 
@@ -83,8 +94,14 @@ export function Post ({ author, publishedAt , content })  {
             </form>
 
             <div className={styles.commentList}>
-                {comments.map(comment => {
-                    return <Comment content={comment}/>
+                {comments.map((comment, index) => {
+                    return (
+                        <Comment 
+                            key={index} 
+                            content={comment}
+                            onDeleteComment={deleteComment}
+                        />
+                    )
                 })}
             </div>
         </article>
